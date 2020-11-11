@@ -28,7 +28,7 @@ const Login = ({ login, user, errorMsg, resetErrors }) => {
 
   const { username, password } = userData;
 
-  if (user) return <Redirect to="/products/" />;
+  if (user) return <Redirect to="/cart/" />;
 
   const errors = errorMsg;
 

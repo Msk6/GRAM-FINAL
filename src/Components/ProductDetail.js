@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Redirect } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
 import { addItem } from "../redux/actions";
@@ -15,6 +15,7 @@ const ProductDetail = ({ products, addItem }) => {
 // Add to cart
   const [btnValue, setBtnValue] = useState("btn btn-primary")
   const [btnName, setBtnName] = useState("Add to cart")
+  const [viewCart, setViewCart] = useState("")
 
   if (!product) return <Redirect to="/products/" />;
 
@@ -37,6 +38,7 @@ const ProductDetail = ({ products, addItem }) => {
     addItem(item);
     setBtnValue("btn btn-success")
     setBtnName("successfuly added")
+    setViewCart(<Link to="/cart" className="btn btn-info">view cart</Link>)
 
   };
 
@@ -133,6 +135,7 @@ const ProductDetail = ({ products, addItem }) => {
                   {btnName}
                 </button>
               ) : null}
+              {viewCart}
             </div>
           </div>
         </div>

@@ -32,7 +32,7 @@ const Profile = ({ user }) => {
                 <Link to="/add-address" className="btn btn-primary">
                   add address
                 </Link>
-                <Link to="/address" className="btn btn-primary">
+                <Link to="/addresses" className="btn btn-primary">
                   my address
                 </Link>
               </div>
