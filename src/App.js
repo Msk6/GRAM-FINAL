@@ -18,7 +18,7 @@ import CheckoutPage from "./Components/CheckoutPage";
 
 function App() {
   return ( 
-  <div>
+  <>
       <NavBar />
       <Switch>
         <Route path="/products/:productID">
@@ -56,7 +56,7 @@ function App() {
           <Login />
         </Route>
       </Switch>
-    </div>
+    </>
   );
 }
 

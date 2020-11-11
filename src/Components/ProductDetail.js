@@ -12,6 +12,10 @@ const ProductDetail = ({ products, addItem }) => {
     product: product,
     qty: 1,
   });
+// Add to cart
+  const [btnValue, setBtnValue] = useState("btn btn-primary")
+  const [btnName, setBtnName] = useState("Add to cart")
+
   if (!product) return <Redirect to="/products/" />;
 
   //display list of images product
@@ -31,6 +35,9 @@ const ProductDetail = ({ products, addItem }) => {
 
   const handleClick = () => {
     addItem(item);
+    setBtnValue("btn btn-success")
+    setBtnName("successfuly added")
+
   };
 
   return (
@@ -38,7 +45,7 @@ const ProductDetail = ({ products, addItem }) => {
       <div className="card">
         <div className="card-header">Product Detail</div>
         <div class="container">
-          <div class="row d-flex justify-content-center mt-5">
+          <div class="row d-flex justify-content-center my-5 py-5">
             <div class="col-md-6">
               <div
                 id="myCarousel"
@@ -115,15 +122,15 @@ const ProductDetail = ({ products, addItem }) => {
               <p>Price : {product.price} SAR</p>
 
               <input
-                type="text"
-                className=""
+                type="number"
+                className="form-control my-3"
                 value={item.qty}
                 name="qty"
                 onChange={textChangeHandler}
               />
               {item.qty <= product.stock && item.qty > 0 ? (
-                <button className="btn btn-primary" onClick={handleClick}>
-                  Add to cart
+                <button className={btnValue} onClick={handleClick}>
+                  {btnName}
                 </button>
               ) : null}
             </div>

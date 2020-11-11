@@ -39,6 +39,7 @@
 body,
 html {
   height: 100%;
+  overflow-x: hidden;
 }
 .bg {
   /* The image used */

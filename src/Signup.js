@@ -29,7 +29,7 @@ const Signup = ({ signup, user, errorMsg }) => {
   const errors = errorMsg;
 
   const { username, first_name, last_name, email, password } = userData;
-  if (user) return <Redirect to="/products/" />;
+  if (user) return <Redirect to="/cart/" />;
   return (
     <div className="container-fluid">
       <div className="row">
