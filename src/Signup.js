@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { signup, resetErrors } from "./redux/actions";
 import { connect } from "react-redux";
+import logo from "./css/login/images/logo.png";
+import signuppic from "./css/login/images/signup.jpeg";
 
 const Signup = ({ signup, user, errorMsg }) => {
   const [userData, setUserData] = useState({
@@ -29,10 +31,14 @@ const Signup = ({ signup, user, errorMsg }) => {
   const { username, first_name, last_name, email, password } = userData;
   if (user) return <Redirect to="/products/" />;
   return (
-    <div className="container ">
-      <div className="col-6 mx-auto">
-        <div className="card my-2 bg-light ">
-          <div className="card-body">
+    <div className="container-fluid">
+      <div className="row">
+        <div className="col-sm-6 login-section-wrapper">
+          <div className="brand-wrapper">
+            <img src={logo} alt="logo" className="logo" />
+          </div>
+          <div className="login-wrapper my-auto">
+            <h1 className="login-title">Signup</h1>
             <form onSubmit={handleSubmit}>
               <div className="form-group">
                 <label htmlFor="username">Username</label>
@@ -97,17 +103,17 @@ const Signup = ({ signup, user, errorMsg }) => {
                 <div className="invalid-feedback">{errors.password}</div>
               </div>
 
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="btn btn-block login-btn">
                 Signup
               </button>
-              <Link
-                to="/login"
-                className="btn btn-link my-2 my-sm-0 text-warning"
-              >
-                I already have an account
+              <Link to="/login" className="login-wrapper-footer-text">
+                already have an account?
               </Link>
             </form>
           </div>
+        </div>
+        <div class="col-sm-6 px-0 d-none d-sm-block">
+          <img src={signuppic} alt="signup image" class="login-img" />
         </div>
       </div>
     </div>

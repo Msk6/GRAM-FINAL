@@ -3,7 +3,9 @@ import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { login, resetErrors } from "./redux/actions";
-
+import "./css/login/css/login.css";
+import loginpic from "./css/login/images/loginpic.jpeg";
+import logo from "./css/login/images/logo.png";
 const Login = ({ login, user, errorMsg, resetErrors }) => {
   const [userData, setUserData] = useState({
     username: "",
@@ -31,10 +33,14 @@ const Login = ({ login, user, errorMsg, resetErrors }) => {
   const errors = errorMsg;
 
   return (
-    <div className="container">
-      <div className="col-6 mx-auto">
-        <div className="card mt-2 bg-light ">
-          <div className="card-body">
+    <div className="container-fluid">
+      <div className="row">
+        <div className="col-sm-6 login-section-wrapper">
+          <div className="brand-wrapper">
+            <img src={logo} alt="logo" className="logo" />
+          </div>
+          <div className="login-wrapper my-auto">
+            <h1 className="login-title">Login</h1>
             <form onSubmit={handleSubmit}>
               <div className="form-group">
                 <label htmlFor="username">Username</label>
@@ -51,7 +57,7 @@ const Login = ({ login, user, errorMsg, resetErrors }) => {
                 />
                 <div className="invalid-feedback">{errors.username}</div>
               </div>
-              <div className="form-group">
+              <div className="form-group mb-4">
                 <label htmlFor="password">Password</label>
                 <input
                   type="password"
@@ -70,17 +76,17 @@ const Login = ({ login, user, errorMsg, resetErrors }) => {
                 </div>
               </div>
 
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="btn btn-block login-btn">
                 Login
               </button>
-              <Link
-                to="/signup"
-                className="btn btn-link my-2 my-sm-0 text-warning"
-              >
-                Signup for an account
+              <Link to="/signup" className="login-wrapper-footer-text">
+                Don't have an account? Register here
               </Link>
             </form>
           </div>
+        </div>
+        <div class="col-sm-6 px-0 d-none d-sm-block">
+          <img src={loginpic} alt="login image" class="login-img" />
         </div>
       </div>
     </div>
